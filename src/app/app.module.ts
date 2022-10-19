@@ -14,6 +14,7 @@ import { ProyectosComponentComponent } from './proyectos-component/proyectos-com
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
 
 const appRoutes:Routes = [
 
@@ -21,7 +22,8 @@ const appRoutes:Routes = [
   {path:'proyectos',component:ProyectosComponentComponent},
   {path:'quienes',component:QuienesComponentComponent},
   {path:'contacto',component:ContactoComponentComponent},
-  {path:'actualiza/:id',component:ActualizaComponentComponent}
+  {path:'actualiza/:id',component:ActualizaComponentComponent},
+  {path:'**', component:ErrorPersonalizadoComponent}
 
 ]
 
