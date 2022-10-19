@@ -10,6 +10,8 @@ import { ServicioEmpleadosService } from '../servicio-empleados.service';
   styleUrls: ['./actualiza-component.component.css']
 })
 export class ActualizaComponentComponent implements OnInit {
+  accion: number = 0;
+
   constructor(
     private router: Router,
     private servicioEmpleado: ServicioEmpleadosService,
@@ -20,6 +22,8 @@ export class ActualizaComponentComponent implements OnInit {
   empleados: Empleado[] = [];
 
   ngOnInit(): void {
+
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']); // para query paramns
 
     this.empleados = this.servicioDataEmpleado.empleados;
 
@@ -38,7 +42,7 @@ export class ActualizaComponentComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  actualizaEmpleado() {
+  /*actualizaEmpleado() {
     let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario)
 
     //this.servicioEmpleado.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
@@ -55,6 +59,25 @@ export class ActualizaComponentComponent implements OnInit {
 
     this.router.navigate(['']);
 
+  }*/
+
+  accionEmpleado() {
+
+    if (this.accion == 1) {
+
+      let miEmpleado = new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario)
+
+      //this.servicioEmpleado.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
+
+      this.servicioDataEmpleado.actualizarEmpleado(this.indice, miEmpleado);
+
+      this.router.navigate(['']);
+    } else {
+      
+      this.servicioDataEmpleado.eliminarEmpleado(this.indice);
+
+      this.router.navigate(['']);
+    }
   }
   cuadroNombre: string = "";
   cuadroApellido: string = ""
