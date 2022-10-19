@@ -8,13 +8,21 @@ import { CaracteristicaEmpleadoCComponent } from './caracteristica-empleado-c/ca
 import { FormsModule } from '@angular/forms';
 import { ServicioEmpleadosService } from './servicio-empleados.service';
 import { EmpleadosService } from './empleados.service';
+import { HomeComponentComponent } from './home-component/home-component.component';
+import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component';
+import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
+import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpleadoComponent,
     EmpleadoHijoCComponent,
-    CaracteristicaEmpleadoCComponent
+    CaracteristicaEmpleadoCComponent,
+    HomeComponentComponent,
+    ProyectosComponentComponent,
+    QuienesComponentComponent,
+    ContactoComponentComponent
   ],
   imports: [
     BrowserModule, FormsModule
